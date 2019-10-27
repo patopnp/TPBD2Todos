@@ -1,46 +1,56 @@
-CREATE TABLE Usuario 
-(
-	id_usuario INT,
-	id_app INT,
-)
+------------ Dispositivo - creación e insert ---------------------
 
 CREATE TABLE Dispositivo
 (
-	id_disp INT PRIMARY KEY,
-	nombre VARCHAR(300),
-	tipo VARCHAR(300),
-	id_metrica INT
-)	
+    id_disp             INT PRIMARY KEY,
+    sonda               VARCHAR(200),
+    cant_metCorrectas   INT,
+    cant_metIncorrectas INT
+)
 
-CREATE TABLE Metrica
-(
-	id_met INT PRIMARY KEY NOT NULL,
-	id_disp INT CONSTRAINT FK_Dispositivo FOREIGN KEY (id_disp)REFERENCES Dispositivo(id_disp),
-	fechaHora DATETIME,
-	descr VARCHAR(500),
-	unidad VARCHAR(400),
-	valor INT
-)	
+------------ Aplicacion - creación e insert ---------------------
 
 CREATE TABLE Aplicacion
 (
-	id_app INT PRIMARY KEY IDENTITY(1,1),
-	id_disp INT,
-	id_metrica INT,
-	nombre VARCHAR(200),
+    id_api      INT,
+    nombreApi   VARCHAR(300),
+    id_disp     INT,
+    countMet    INT, --este contador solo incrementará si se suceden las metricas configurables que pueden significar que una aplicación está fallanado por las recepciones de metricas de cada dispositivo perteneciente a una aplicación
 )
+
+------------ Metricas - creación ---------------------
+
+CREATE TABLE Metrica
+(
+    id_metrica  INT PRIMARY KEY IDENTITY(1,1),
+    id_disp     INT,
+    fecha_hora  DATETIME,
+    descrip     VARCHAR(400),
+    unidad      VARCHAR(100),
+    valor       INT, -- >50 MAL <= 50 BIEN
+    estado      VARCHAR(200)
+)
+
+
+
+------------ Incidentes - creación ---------------------
 
 CREATE TABLE Incidente
 (
-	id INT IDENTITY(1,1),
-	id_app INT  CONSTRAINT Aplicacion FOREIGN KEY (id_app)REFERENCES Aplicacion(id_app),
-	incidente VARCHAR(300)
+    id_incidente    INT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    id_api          INT,
+    estado          VARCHAR(400)
 )
+
+
+
+------------ Notificacion - creación ---------------------
 
 CREATE TABLE Notificacion
 (
-	id_not INT IDENTITY(1,1),
-	id_usuario INT,
-	id_incidente INT,
-	TipoNotifiacion VARCHAR(400)
+    id_noti         INT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    id_usuario      INT, --SYSUSER
+    id_api          INT,
+    tipo_noti       VARCHAR(300), --MAIL 1, SMS 2, LLAMADO3 -> 3 URGENTEES, 2 MASO, 1 NO
+    estado          VARCHAR(300)
 )
