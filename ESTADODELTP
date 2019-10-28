@@ -1,0 +1,24 @@
+Generar logins y usuarios con distintos perfiles sobre la lógica de la aplicación
+
+Admin, que pueda cambiar parámetros
+
+Usuario de actualización, que pueda generar métricas y demás
+
+Lector, que sólo pueda consultar
+
+Generar índices considerados necesarios para manejar un volumen alto de métricas
+
+Generar tests para todos los componentes que se desarrollen
+
+falta eso  y probar todo
+
+
+Lista tareas
+28/10
+
+.CAMBIAR usuario en la definiciòn de tabla para que sea el correcto (probablemente varchar)
+.En el trigger unaAppFallando, hacer que los contadores den 5 (segun el ejemplo) y no 20.
+.En la tabla 'Apliaciòn' corregir para que se muestre en lugar de (5,5,5,5) - (1,1,3,0). (ver lògica de la tabla dispositivo)
+.Crear tabla historial
+.Falta persistir paràmeros
+.Falta usuarios y logins  
