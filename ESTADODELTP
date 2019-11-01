@@ -16,7 +16,8 @@ falta eso  y probar todo
 Lista tareas
 28/10
 
-.CAMBIAR usuario en la definiciòn de tabla para que sea el correcto (probablemente varchar)
+ - COMPLETADA - FRAN -.CAMBIAR usuario en la definiciòn de tabla para que sea el correcto (probablemente varchar)
+
 .En el trigger unaAppFallando, hacer que los contadores den 5 (segun el ejemplo) y no 20.
 .En la tabla 'Apliaciòn' corregir para que se muestre en lugar de (5,5,5,5) - (1,1,3,0). (ver lògica de la tabla dispositivo)
 .Crear tabla historial

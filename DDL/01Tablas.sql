@@ -49,7 +49,7 @@ CREATE TABLE Incidente
 CREATE TABLE Notificacion
 (
     id_noti         INT PRIMARY KEY NOT NULL IDENTITY(1,1),
-    id_usuario      INT, --SYSUSER
+    id_usuario      VARCHAR(400),
     id_api          INT,
     tipo_noti       VARCHAR(300), --MAIL 1, SMS 2, LLAMADO3 -> 3 URGENTEES, 2 MASO, 1 NO
     estado          VARCHAR(300)
