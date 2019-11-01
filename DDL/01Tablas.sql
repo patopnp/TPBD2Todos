@@ -12,10 +12,12 @@ CREATE TABLE Dispositivo
 
 CREATE TABLE Aplicacion
 (
+	id 			INT IDENTITY(1,1),
     id_api      INT,
     nombreApi   VARCHAR(300),
     id_disp     INT,
     countMet    INT, --este contador solo incrementará si se suceden las metricas configurables que pueden significar que una aplicación está fallanado por las recepciones de metricas de cada dispositivo perteneciente a una aplicación
+	total 		INT
 )
 
 ------------ Metricas - creación ---------------------

@@ -40,6 +40,18 @@ BEGIN
 		UPDATE Dispositivo SET cant_metIncorrectas = @countNoOkDisp6 WHERE id_disp = 6
 		UPDATE Dispositivo SET cant_metIncorrectas = @countNoOkDisp7 WHERE id_disp = 7
 		UPDATE Dispositivo SET cant_metIncorrectas = @countNoOkDisp8 WHERE id_disp = 8
+		
+		
+		
+		UPDATE Aplicacion SET countMet = @countNoOkDisp1 WHERE id_disp = 1
+		UPDATE Aplicacion SET countMet = @countNoOkDisp2 WHERE id_disp = 2
+		UPDATE Aplicacion SET countMet = @countNoOkDisp3 WHERE id_disp = 3
+		UPDATE Aplicacion SET countMet = @countNoOkDisp4 WHERE id_disp = 4
+		UPDATE Aplicacion SET countMet = @countNoOkDisp5 WHERE id_disp = 5
+		UPDATE Aplicacion SET countMet = @countNoOkDisp6 WHERE id_disp = 6
+		UPDATE Aplicacion SET countMet = @countNoOkDisp7 WHERE id_disp = 7
+		UPDATE Aplicacion SET countMet = @countNoOkDisp8 WHERE id_disp = 8
+		
 
 		UPDATE metrica SET estado = 'Inactivo' where valor is not null and valor <> 0
 
@@ -48,12 +60,12 @@ BEGIN
 
 		IF ((@api1CONT) >= 3)
 		BEGIN
-            UPDATE Aplicacion SET countMet = @api1CONT WHERE id_api = 1
+            UPDATE Aplicacion SET total = @api1CONT WHERE id_api = 1
 		END
 		
 		IF((@api2CONT) >= 3)
 		BEGIN
-            UPDATE Aplicacion SET countMet = @api2CONT WHERE id_api = 2
+            UPDATE Aplicacion SET total = @api2CONT WHERE id_api = 2
 		END	
     END
 END
