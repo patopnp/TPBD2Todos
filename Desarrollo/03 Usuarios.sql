@@ -1,7 +1,7 @@
 -- Creamos el esquema y otorgamos los permisos
 CREATE SCHEMA Monitoreo;
-GRANT ALTER ON Parametros SCHEMA::Monitoreo TO admin;
-GRANT INSERT ON Metrica SCHEMA::Monitoreo TO usuarioActualizacion;
+GRANT ALTER ON OBJECT::Monitoreo.Parametros TO admin;
+GRANT INSERT ON OBJECT::Monitoreo.Metrica TO usuarioActualizacion;
 GRANT SELECT ON SCHEMA::Monitoreo TO lector;
 
 
